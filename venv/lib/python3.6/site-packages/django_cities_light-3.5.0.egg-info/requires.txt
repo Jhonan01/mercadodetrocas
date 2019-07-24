@@ -1,0 +1,5 @@
+django-autoslug-iplweb==1.9.4.dev0
+progressbar2>=3.6.0
+pytz
+six
+unidecode>=0.04.13

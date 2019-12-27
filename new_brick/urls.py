@@ -18,8 +18,11 @@ from django.urls import path
 from contas.views import cadastro, cadastro_enviado, login_efetuado
 from itens.views import incluir_item, item_enviado
 from index.views import index, buscando, buscar
+<<<<<<< HEAD
 from django.conf.urls.static import static
 
+=======
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +34,11 @@ urlpatterns = [
     path('', index),
     path('buscando/', buscando),
     path('login_efetuado/', login_efetuado),
+<<<<<<< HEAD
     path('buscar/', buscar),
 
 
+=======
+    path('buscar/', buscar)
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
 ]

@@ -9,12 +9,19 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
+<<<<<<< HEAD
 from typing import Any
+=======
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
 
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+<<<<<<< HEAD
 BASE_DIR: Any = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+=======
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
 
 
 # Quick-start development settings - unsuitable for production
@@ -124,6 +131,7 @@ USE_TZ = True
 
 #definindo url da pasta static assets
 
+<<<<<<< HEAD
 STATIC_URL = "/static/"
 
 STATICFILES_DIRS = [
@@ -132,3 +140,10 @@ STATICFILES_DIRS = [
 
 
 
+=======
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612

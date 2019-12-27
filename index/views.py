@@ -20,6 +20,11 @@ def buscando(request):
 def buscar(request):
 
     data = []
+<<<<<<< HEAD
+=======
+    dataP2 = []
+    dataP3 = []
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
 
     buscar = Incluir_item.objects.all()
 
@@ -32,6 +37,11 @@ def buscar(request):
 
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
         if(contar > 0):
             obj.peso = contar
             data.append(obj)

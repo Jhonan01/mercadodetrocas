@@ -1,0 +1,114 @@
+{% extends "../index.html" %}
+{% load static %}
+{% block title %}Mercado de trocas - Acessar conta{% endblock %}
+
+{% block nav %}
+    {% include "includes/nav-lite.html" %}
+{% endblock %}
+
+{%  block main %}
+ <a id="permisao" class=" waves-effect waves-light btn btn-floating  grey lighten-2 " ><i class="material-icons grey-text">arrow_upward</i></a>
+
+  <!-- Tap Target Structure -->
+  <div class="tap-target  orange darken-3" data-target="permisao">
+    <div class="tap-target-content">
+      <h5 class="grey-text text-lighten-5">Aqui quem manda é você, nos autorize o acesso de sua localização</h5>
+      <p><img src="{% static '/img/geolocaliHelp.png' %}" width="70%"></p>
+    </div>
+  </div>
+       <form class="container_login">
+                <div class="row">
+                <div class="col s6 collpadding">
+
+                        <div class="content_social">
+                                <h5 class="grey-text text-darken-2">Acesse sua conta</h5>
+                                <button class="btn waves-effect waves-light blue darken-2" ><i class="fab fa-facebook-f left"></i> Facebook </button>
+                                <button class="btn waves-effect waves-light  red darken-1" ><i class="fab fa-google left"></i></i> Google </button>
+                                <span class="float_span">ou</span>
+                        </div>
+
+
+                         </form>
+
+                        <form action="/login_efetuado" method="GET">
+                        <div class="input-field">
+                                <input id="icon_email" type="text" class="validate" name="email">
+                                <label for="icon_email">Email</label>
+                        </div>
+                        <div class="input-field">
+                                <input id="icon_password" type="password" class="validate" name="senha">
+                                <label for="icon_password">Senha</label>
+                        </div>
+
+                        <a href="#" class="right">Esqueci minha senha</a>
+
+                        <button class="btn waves-effect waves-light orange darken-4">Entrar</button>
+                        </form>
+
+                </div>
+
+
+
+                <div class="col s6 collpadding">
+                        <h5 class="grey-text text-darken-2 stap1_titulo">Cadastre-se e faça uma troca!</h5>
+
+                        <div class="content_cadastro">
+                          
+
+                                        <form action="/cadastro" method="GET">
+
+                                        {%csrf_token%}
+
+                                        <div id="step1">
+                                            <div class="col s6 input-field id_email">
+                                            {{form.email}}
+                                            
+                                            <label for="id_email">Email</label>
+                                            </div>
+
+                                            <div class="col s6 input-field id_senha">
+                                                {{form.senha}}
+                                                
+                                                <label for="id_senha">Senha</label>
+                                            </div>
+
+                                            <div class="input-field col s12 id_nome">
+                                                {{form.nome}}
+                                                
+                                                <label for="id_nome">Nome Completo</label>
+                                            </div>
+                                        </div>
+
+                                        <div id="step2" class="hidden">
+                                            <i class="small material-icons grey-text text-darken-2 step_back">arrow_back</i>
+                                            <h6>Quase lá! Agora precisamos saber qual a sua cidade.</h6>
+                                            <div class="location_content"><div class='pin_icon bounce_icon'></div>
+                                            <div class='pulse_icon'></div>
+                                            <span class="cidade_name">Localizando...</span>
+                                            </div>
+                                            <p><strong>Mas por quê?</strong><br>
+                                                Sua localização é necessária para que possamos mostrar itens de trocas perto de você, sem ela você visualizaria apenas itens com distâncias aleatórias, dificultando a sua troca. <br> Se tudo estiver entendido, permita a localização e usufrua da nossa plataforma.
+                                            </p>
+                                         {{form.latitude}}
+                                         {{form.longitude}}
+                                        </div>    
+                                    <button class="btn waves-effect waves-light orange darken-4" id="cadastrar">Seguinte</button>
+
+                                </form>
+
+
+                               
+                        </div>
+
+
+                        </div>
+
+<span class="login_footer col s12">Ao continuar, você concorda com os <a href="#">Termos de Uso</a>  e a <a href="#">Política de Privacidade</a> do Bricks. </span> 
+
+                </div>
+
+                
+
+                </div>
+
+{% endblock %}

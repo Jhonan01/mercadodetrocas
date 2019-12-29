@@ -18,6 +18,7 @@ from django.urls import path
 from contas.views import cadastro, cadastro_enviado, login_efetuado
 from itens.views import incluir_item, item_enviado
 from index.views import index, buscando, buscar
+from lances.views import *
 from django.conf.urls.static import static
 
 
@@ -32,6 +33,9 @@ urlpatterns = [
     path('buscando/', buscando),
     path('login_efetuado/', login_efetuado),
     path('buscar/', buscar),
+    path('lances/', lances),
+    path('lance_enviado/', lance_enviado),
+    path('meus_itens/', meus_itens),
 
 
 ]

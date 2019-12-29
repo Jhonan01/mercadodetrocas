@@ -2,14 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Resultado da pesquisa</title>
+    <title>Meus itens</title>
 </head>
 <body>
 
-<h3>Resultados: </h3>
-
-{% for i in dic %}
-
+{% for i in buscar %}
 
     <img src = '/{{i.imagem1}}' class="img-responsive" height="200" width="200" />
     <img src = '/{{i.imagem2}}' class="img-responsive" height="200" width="200" />
@@ -23,9 +20,7 @@
     <h3>Categoria: {{ i.categorias }}</h3>
 
 
-
-
-     <a href='/meus_itens/?id_usuario_alvo={{i.id_usuario_item_id}}&id_item_alvo={{i.id}}'>
+     <a href='/lance_enviado/?id_usuario_alvo={{inf1}}&id_item_alvo={{inf2}}&id_item_meu={{i.id}}'>
                      <button>
 
 			     <h5>Dar oferta</h5>
@@ -33,13 +28,7 @@
 	             </button>
 
     <h3>-------------------------------------------------------------------------</h3></br>
-    
-
 {% endfor %}
-
-
-
-
 
 </body>
 </html>

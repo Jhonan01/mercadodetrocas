@@ -18,7 +18,7 @@ def incluir_item(request):
 
     if request.POST:
 
-
+        formUpdate = form.save(commit=False)
 
         name = request.FILES['imagem1'].name
         name2 = request.FILES['imagem2'].name
@@ -33,6 +33,7 @@ def incluir_item(request):
         imageName5 = name5.split('.')
 
         if(len(imageName) > 2 or len(imageName2) > 2 or len(imageName3) > 2 or len(imageName4) > 2 or len(imageName5) > 2):
+
             erros = "Caracter indesejavel"
 
             return render(request, 'incluir_item/incluir_item.html', data, erros)
@@ -45,26 +46,24 @@ def incluir_item(request):
 
         if(imageName[1] == "jpeg" or imageName[1] == "png" or imageName[1] == "gif" or imageName[1] == "jpg" and imageName2[1] == "jpeg" or imageName2[1] == "png" or imageName2[1] == "gif" or imageName2[1] == "jpg" and imageName3[1] == "jpeg" or imageName3[1] == "png" or imageName3[1] == "gif" or imageName3[1] == "jpg" and imageName4[1] == "jpeg" or imageName4[1] == "png" or imageName4[1] == "gif" or imageName4[1] == "jpg" and imageName5[1] == "jpeg" or imageName5[1] == "png" or imageName5[1] == "gif" or imageName5[1] == "jpg"):
 
-            form.imagem1 = str(imageName[0]) + "." + str(imageName[1])
-            form.imagem2 = str(imageName2[0]) + "." + str(imageName2[1])
-            form.imagem3 = str(imageName3[0]) + "." + str(imageName3[1])
-            form.imagem4 = str(imageName4[0]) + "." + str(imageName4[1])
-            form.imagem5 = str(imageName5[0]) + "." + str(imageName5[1])
+            #formUpdate.imagem1 = str(imageName[0]) + "." + str(imageName[1])
+            #formUpdate.imagem2 = str(imageName2[0]) + "." + str(imageName2[1])
+            #formUpdate.imagem3 = str(imageName3[0]) + "." + str(imageName3[1])
+            #formUpdate.imagem4 = str(imageName4[0]) + "." + str(imageName4[1])
+            #formUpdate.imagem5 = str(imageName5[0]) + "." + str(imageName5[1])
 
 
             try:
-                form.latitude = Usuario.objects.get(id=request.session['sessionid']).latitude
-                form.longitude = Usuario.objects.get(id=request.session['sessionid']).longitude
+                formUpdate.latitude = Usuario.objects.get(id=request.session['sessionid']).latitude
+                formUpdate.longitude = Usuario.objects.get(id=request.session['sessionid']).longitude
 
             except MyModel.DoesNotExist:
 
                 pass
 
-            form.id_usuario_item_id = request.session['sessionid']
+            formUpdate.id_usuario_item_id = request.session['sessionid']
 
-            print(form.imagem1)
-
-            form.save()
+            formUpdate.save()
 
             return render(request, 'incluir_item/item_enviado.html')
         else:

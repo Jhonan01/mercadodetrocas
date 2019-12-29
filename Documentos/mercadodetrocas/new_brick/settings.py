@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'contas',
     'itens',
     'index',
+    'lances',
 
 ]
 

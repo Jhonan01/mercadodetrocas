@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% load static %}
+    {% include "includes/head.html" %}
+<body>
+
+    {% block nav %}
+        {% include "includes/nav-extended.html" %}
+    {% endblock %}
+
+    <div class="row">
+        <div class="container">
+            {% block main %}
+
+                {% include "includes/destaques.html" %}
+                {% include "includes/viewProdutos.html" %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    {% include "includes/footer.html" %}
+<script src="{% static '/js/jquery.min.js' %}"></script>
+<script src="{% static 'js/lightslider.js' %}"></script>
+<script src="{% static '/js/materialize.min.js' %}"></script>
+<script src="{% static '/js/script.js' %}"></script>
+
+    
+</body>
+</html>

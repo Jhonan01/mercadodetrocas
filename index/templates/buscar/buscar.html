@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da pesquisa</title>
+</head>
+<body>
+
+<h3>Resultados: </h3>
+
+{% for i in dic %}
+
+
+<<<<<<< HEAD
+    <img src = '/{{i.imagem1}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem2}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem3}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem4}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem5}}' class="img-responsive" height="200" width="200" />
+
+    <h3>Titulo: {{ i.titulo }}</h3>
+    <h3>Descriçâo: {{ i.descricao }}</h3>
+    <h3>Visualizado: {{ i.visualizado }}</h3>
+    <h3>Categoria: {{ i.categorias }}</h3>
+    <h3>-------------------------------------------------------------------------</h3></br>
+=======
+    <h3>Titulo: {{ i.titulo }}</h3></br>
+    <h3>Descriçâo: {{ i.descricao }}</h3></br>
+>>>>>>> 5a63809f2124d34cb4528cd7a3cfc8b2fdfce612
+    
+
+{% endfor %}
+
+
+
+
+
+</body>
+</html>

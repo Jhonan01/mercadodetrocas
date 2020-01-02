@@ -7,12 +7,28 @@ from lances.models import *
 
 def lances(request):
 
-    data = []
+    lancesTudo = []
 
-    buscar = Incluir_item.objects.all()
+    lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
+
+    for i in lances_enviados:
+        itens_enviados = Incluir_item.objects.filter(id = i.id_item_oferta_enviada)
+        itens_recebidos = Incluir_item.objects.filter(id = i.id_item_oferta_recebida)
 
 
-    return render(request, 'lances/lances.html')
+        lances = {
+
+            "itens_enviados": itens_enviados,
+            "itens_recebidos": itens_recebidos,
+
+        }
+
+        lancesTudo.append(lances)
+
+        print(lances)
+
+
+    return render(request, 'lances/lances.html', lances)
 
 
 def lance_enviado(request):

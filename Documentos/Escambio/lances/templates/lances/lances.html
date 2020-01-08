@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escâmbio</title>
+</head>
+<body>
+<h1>Escâmbio</h1></br>
+
+
+<h3>Ofertas enviadas-------------------------------------------------</h3></br></br>
+
+{% for i in tudo %}
+
+
+
+    {% for a in i.itens_enviados %}
+
+
+        <img src = '/{{a.imagem1}}' class="img-responsive" height="200" width="200" />
+        <img src = '/{{a.imagem2}}' class="img-responsive" height="200" width="200" />
+        <img src = '/{{a.imagem3}}' class="img-responsive" height="200" width="200" />
+        <img src = '/{{a.imagem4}}' class="img-responsive" height="200" width="200" />
+        <img src = '/{{a.imagem5}}' class="img-responsive" height="200" width="200" />
+
+        <h3>Titulo: {{ a.titulo }}</h3>
+        <h3>Descriçâo: {{ a.descricao }}</h3>
+        <h3>Visualizado: {{ a.visualizado }}</h3>
+        <h3>Categoria: {{ a.categorias }}</h3>
+
+         <h3>POR -------------------------------------------------</h3></br></br>
+
+        {% for q in i.itens_recebidos %}
+
+
+            <img src = '/{{q.imagem1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{q.imagem2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{q.imagem3}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{q.imagem4}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{q.imagem5}}' class="img-responsive" height="200" width="200" />
+
+            <h3>Titulo: {{ q.titulo }}</h3>
+            <h3>Descriçâo: {{ q.descricao }}</h3>
+            <h3>Visualizado: {{ q.visualizado }}</h3>
+            <h3>Categoria: {{ q.categorias }}</h3>
+
+<h1>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1></br></br>
+    {% endfor %}
+
+
+    {% endfor %}
+
+
+{% endfor %}
+
+
+
+</body>
+</html>
+
+

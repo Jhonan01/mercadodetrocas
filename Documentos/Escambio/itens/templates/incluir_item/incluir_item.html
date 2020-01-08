@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Incluir_item</title>
+</head>
+<body>
+
+<h1>Escâmbio</h1>
+</br>
+<hr/>
+
+<a href="/">Inicio</a>
+
+<form method="POST" action="/incluir_item/" enctype="multipart/form-data">
+
+    {%csrf_token%}
+    {{erros}}
+    {{form.as_p}}
+
+
+
+    <button type="submit">Enviar</button>
+
+</form>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultado da pesquisa</title>
+</head>
+<body>
+
+<h3>Resultados: </h3>
+
+{% for i in dic %}
+
+
+    <img src = '/{{i.imagem1}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem2}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem3}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem4}}' class="img-responsive" height="200" width="200" />
+    <img src = '/{{i.imagem5}}' class="img-responsive" height="200" width="200" />
+
+    <h3>Titulo: {{ i.titulo }}</h3>
+    <h3>Descriçâo: {{ i.descricao }}</h3>
+    <h3>Visualizado: {{ i.visualizado }}</h3>
+    <h3>Categoria: {{ i.categorias }}</h3>
+
+
+
+
+     <a href='/meus_itens/?id_usuario_alvo={{i.id_usuario_item_id}}&id_item_alvo={{i.id}}'>
+
+         <button><h5>Dar oferta</h5></button></br>
+
+         --------------------------------------------------------------------------------------------------------
+    
+
+{% endfor %}
+
+
+
+
+
+</body>
+</html>

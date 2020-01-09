@@ -10,18 +10,27 @@ def lances(request):
     lancesTudo = []
 
     lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
+    lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida=request.session['sessionid'])
 
     for i in lances_enviados:
         itens_enviados = Incluir_item.objects.filter(id = i.id_item_oferta_enviada)
         itens_recebidos = Incluir_item.objects.filter(id = i.id_item_oferta_recebida)
 
+        for a in lances_recebidos:
 
-        lances = {
+            itens_enviados2 = Incluir_item.objects.filter(id=a.id_item_oferta_enviada)
+            itens_recebidos2 = Incluir_item.objects.filter(id=a.id_item_oferta_recebida)
 
-            "itens_enviados": itens_enviados,
-            "itens_recebidos": itens_recebidos,
+            lances = {
 
-        }
+                "itens_enviados": itens_enviados,
+                "itens_recebidos": itens_recebidos,
+                "itens_enviados2": itens_enviados2,
+                "itens_recebidos2": itens_recebidos2,
+
+            }
+
+            print(lances)
 
         for i in lances['itens_enviados']:
 

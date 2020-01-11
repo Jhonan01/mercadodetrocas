@@ -9,36 +9,48 @@ def lances(request):
 
     lancesTudo = []
 
+    id_itens_lances_enviados_objetos1 = []
+    id_itens_lances_enviados_objetos2 = []
+    id_itens_lances_recebidos_objetos1 = []
+    id_itens_lances_recebidos_objetos2 = []
+
     lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
-    lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida=request.session['sessionid'])
+    lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida = request.session['sessionid'])
 
-    for i in lances_enviados:
-        itens_enviados = Incluir_item.objects.filter(id = i.id_item_oferta_enviada)
-        itens_recebidos = Incluir_item.objects.filter(id = i.id_item_oferta_recebida)
+    for i in range(len(lances_enviados)):
 
-        for a in lances_recebidos:
+        id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_enviada))
+        id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_recebida))
 
-            itens_enviados2 = Incluir_item.objects.filter(id=a.id_item_oferta_enviada)
-            itens_recebidos2 = Incluir_item.objects.filter(id=a.id_item_oferta_recebida)
 
-            lances = {
+    for a in range(len(lances_recebidos)):
 
-                "itens_enviados": itens_enviados,
-                "itens_recebidos": itens_recebidos,
-                "itens_enviados2": itens_enviados2,
-                "itens_recebidos2": itens_recebidos2,
+        id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_enviada))
+        id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_recebida))
 
-            }
 
-            print(lances)
+    lancesTudo = {
 
-        for i in lances['itens_enviados']:
+        'id_itens_lances_enviados_objetos1':id_itens_lances_enviados_objetos1,
+        'id_itens_lances_recebidos_objetos1':id_itens_lances_recebidos_objetos1,
 
-            lancesTudo.append(lances)
+    }
 
-    tudo = { 'tudo': lancesTudo }
-    print(tudo['tudo'][0])
-    return render(request, 'lances/lances.html', tudo)
+    tudo = []
+
+    tudo.append(lancesTudo)
+
+    tudo_concatenado = []
+
+    tudo_concatenado = {
+
+        'tudo_concatenado':tudo
+
+    }
+
+    print(tudo_concatenado)
+
+    return render(request, 'lances/lances.html', tudo_concatenado)
 
 
 def lance_enviado(request):

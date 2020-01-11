@@ -9,101 +9,60 @@
 
 <a href="/">Inicio</a>
 
-<h3>Ofertas enviadas-----------------------------------------------------------------</h3></br></br>
+<h3>Ofertas enviadas-----------------------------------------------------------------</h3></br></br> <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1></br></br>
 
 
-{% for i in tudo %}
+{% for i in tudo_concatenado %}
 
 
-
-    {% for a in i.itens_enviados %}
-
-
-        <img src = '/{{a.imagem1}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem2}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem3}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem4}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem5}}' class="img-responsive" height="200" width="200" />
-
-        <h3>Titulo: {{ a.titulo }}</h3>
-        <h3>Descriçâo: {{ a.descricao }}</h3>
-        <h3>Visualizado: {{ a.visualizado }}</h3>
-        <h3>Categoria: {{ a.categorias }}</h3>
-
-         <h3>POR -------------------------------------------------</h3></br></br>
-
-        {% for q in i.itens_recebidos %}
+    {% for a in i.id_itens_lances_enviados_objetos1 %}
 
 
-            <img src = '/{{q.imagem1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem3}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem4}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem5}}' class="img-responsive" height="200" width="200" />
+        {% for t in a %}
 
-            <h3>Titulo: {{ q.titulo }}</h3>
-            <h3>Descriçâo: {{ q.descricao }}</h3>
-            <h3>Visualizado: {{ q.visualizado }}</h3>
-            <h3>Categoria: {{ q.categorias }}</h3>
+            <img src = '/{{t.imagem1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem3}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem4}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem5}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ t.titulo }}</h3>
+            <h3>Descriçâo: {{ t.descricao }}</h3>
+            <h3>Visualizado: {{ t.visualizado }}</h3>
+            <h3>Categoria: {{ t.categorias }}</h3> <h3>POR -------------------------------------------------</h3></br></br>
+            {% endfor %}
 
-<h1>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1></br></br>
 
 {% endfor %}
-
 {% endfor %}
 
-{% endfor %}
 
 
 
 <h3>Ofertas recebidas----------------------------------------------------------------</h3></br></br>
 
 
-{% for i in tudo %}
+{% for r in tudo_concatenado %}
 
 
-
-    {% for a in i.itens_enviados2 %}
-
-
-        <img src = '/{{a.imagem1}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem2}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem3}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem4}}' class="img-responsive" height="200" width="200" />
-        <img src = '/{{a.imagem5}}' class="img-responsive" height="200" width="200" />
-
-        <h3>Titulo: {{ a.titulo }}</h3>
-        <h3>Descriçâo: {{ a.descricao }}</h3>
-        <h3>Visualizado: {{ a.visualizado }}</h3>
-        <h3>Categoria: {{ a.categorias }}</h3>
-
-         <h3>POR -------------------------------------------------</h3></br></br>
-
-        {% for q in i.itens_recebidos2 %}
+    {% for z in r.id_itens_lances_recebidos_objetos1 %}
 
 
-            <img src = '/{{q.imagem1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem3}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem4}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{q.imagem5}}' class="img-responsive" height="200" width="200" />
+        {% for b in z %}
 
-            <h3>Titulo: {{ q.titulo }}</h3>
-            <h3>Descriçâo: {{ q.descricao }}</h3>
-            <h3>Visualizado: {{ q.visualizado }}</h3>
-            <h3>Categoria: {{ q.categorias }}</h3>
+            <img src = '/{{b.imagem1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem3}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem4}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem5}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ b.titulo }}</h3>
+            <h3>Descriçâo: {{ b.descricao }}</h3>
+            <h3>Visualizado: {{ b.visualizado }}</h3>
+            <h3>Categoria: {{ b.categorias }}</h3> <h3>POR -------------------------------------------------</h3></br></br>
+            {% endfor %}
 
-<h1>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1></br></br>
 
 {% endfor %}
-
 {% endfor %}
-
-{% endfor %}
-
-
-<h1>-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</h1></br></br>
-
 
 
 

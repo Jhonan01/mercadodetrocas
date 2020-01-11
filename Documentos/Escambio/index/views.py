@@ -6,11 +6,21 @@ from itens.models import *
 
 def index(request):
 
-    #nome_usuario = Usuario.objects.filter(id = request.session['sessionid'])
+    if(type((request.session.session_key)) == type('chave')):
 
-    #return render(request, 'index.html', { 'nome_usuario':nome_usuario })
+        nome_usuario = Usuario.objects.filter(id=request.session['sessionid'])
 
-    return render(request, 'index.html')
+        return render(request, 'index.html', { 'nome_usuario':nome_usuario })
+
+    else:
+
+        return render(request, 'index.html',)
+
+
+
+
+
+
 
 
 

@@ -10,9 +10,7 @@ def lances(request):
     lancesTudo = []
 
     id_itens_lances_enviados_objetos1 = []
-    id_itens_lances_enviados_objetos2 = []
     id_itens_lances_recebidos_objetos1 = []
-    id_itens_lances_recebidos_objetos2 = []
 
     lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
     lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida = request.session['sessionid'])
@@ -47,8 +45,6 @@ def lances(request):
         'tudo_concatenado':tudo
 
     }
-
-    print(tudo_concatenado)
 
     return render(request, 'lances/lances.html', tudo_concatenado)
 

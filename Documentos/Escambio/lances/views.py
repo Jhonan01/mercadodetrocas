@@ -7,44 +7,48 @@ from lances.models import *
 
 def lances(request):
 
-    lancesTudo = []
+    if (type((request.session.session_key)) == type('chave')):
 
-    id_itens_lances_enviados_objetos1 = []
-    id_itens_lances_recebidos_objetos1 = []
+        lancesTudo = []
 
-    lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
-    lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida = request.session['sessionid'])
+        id_itens_lances_enviados_objetos1 = []
+        id_itens_lances_recebidos_objetos1 = []
 
-    for i in range(len(lances_enviados)):
+        lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
+        lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida = request.session['sessionid'])
 
-        id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_enviada))
-        id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_recebida))
+        for i in range(len(lances_enviados)):
 
-
-    for a in range(len(lances_recebidos)):
-
-        id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_enviada))
-        id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_recebida))
+            id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_enviada))
+            id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_recebida))
 
 
-    lancesTudo = {
+        for a in range(len(lances_recebidos)):
 
-        'id_itens_lances_enviados_objetos1':id_itens_lances_enviados_objetos1,
-        'id_itens_lances_recebidos_objetos1':id_itens_lances_recebidos_objetos1,
+            id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_enviada))
+            id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_recebida))
 
-    }
 
-    tudo = []
+        lancesTudo = {
 
-    tudo.append(lancesTudo)
+            'id_itens_lances_enviados_objetos1':id_itens_lances_enviados_objetos1,
+            'id_itens_lances_recebidos_objetos1':id_itens_lances_recebidos_objetos1,
 
-    tudo_concatenado = []
+        }
 
-    tudo_concatenado = {
+        tudo = []
 
-        'tudo_concatenado':tudo
+        tudo.append(lancesTudo)
 
-    }
+        tudo_concatenado = []
+
+        tudo_concatenado = {
+
+            'tudo_concatenado':tudo
+
+        }
+    else:
+        return render(request, 'lances/lances.html', { })
 
     return render(request, 'lances/lances.html', tudo_concatenado)
 
@@ -71,11 +75,17 @@ def lance_enviado(request):
 
 def meus_itens(request):
 
-    buscar = Incluir_item.objects.filter(id_usuario_item_id=request.session['sessionid'])
+    if (type((request.session.session_key)) == type('chave')):
 
-    meus_itens = {'buscar': buscar, 'inf1':request.GET['id_usuario_alvo'], 'inf2':request.GET['id_item_alvo'] }
+        buscar = Incluir_item.objects.filter(id_usuario_item_id=request.session['sessionid'])
 
-    return render(request, 'lances/meus_itens.html' ,meus_itens)
+        meus_itens = {'buscar': buscar, 'inf1':request.GET['id_usuario_alvo'], 'inf2':request.GET['id_item_alvo'] }
+
+        return render(request, 'lances/meus_itens.html' ,meus_itens)
+
+    else:
+        return render(request, 'blocos/login.html')
+
 
 
 

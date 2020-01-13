@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Escâmbio</title>
+</head>
+<body>
+<h1>Escâmbio</h1></br>
+
+<a href="/">Inicio</a>
+
+<h3>Ofertas enviadas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
+
+
+{% for i in tudo_concatenado %}
+
+
+    {% for a in i.id_itens_lances_enviados_objetos1 %}
+
+        {% for t in a %}
+
+            <img src = '/{{t.imagem1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem3}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem4}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{t.imagem5}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ t.titulo }}</h3>
+            <h3>Descriçâo: {{ t.descricao }}</h3>
+            <h3>Visualizado: {{ t.visualizado }}</h3>
+            <h3>Categoria: {{ t.categorias }}</h3>
+            <h3>POR -------------------------------------------------</h3></br></br>
+            {% endfor %}
+
+{% endfor %}
+{% endfor %}
+
+
+
+
+<h3>Ofertas recebidas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
+
+
+{% for r in tudo_concatenado %}
+
+
+    {% for z in r.id_itens_lances_recebidos_objetos1 %}
+
+
+        {% for b in z %}
+
+
+            <img src = '/{{b.imagem1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem3}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem4}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem5}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ b.titulo }}</h3>
+            <h3>Descriçâo: {{ b.descricao }}</h3>
+            <h3>Visualizado: {{ b.visualizado }}</h3>
+            <h3>Categoria: {{ b.categorias }}</h3>
+            <h3>POR -------------------------------------------------</h3></br></br>
+            <a href='/?id_usuario_lancador={{ b.id_usuario_item_id }}'>Aceitar</a>
+            {% endfor %}
+
+
+
+{% endfor %}
+{% endfor %}
+
+
+
+
+</body>
+</html>
+
+

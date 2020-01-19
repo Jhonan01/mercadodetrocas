@@ -2,6 +2,8 @@
 from asgiref.sync import async_to_sync
 from channels.generic.websocket import WebsocketConsumer
 import json
+from django.shortcuts import render
+from index.models import *
 
 class ChatConsumer(WebsocketConsumer):
     def connect(self):
@@ -45,3 +47,6 @@ class ChatConsumer(WebsocketConsumer):
         self.send(text_data=json.dumps({
             'message': message
         }))
+
+
+

@@ -10,16 +10,21 @@
 
     <div class="row">
 
-        <table width="280" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A"><tr>
+        {% for i in inf_chat_lances %}
+            {{ i }}
+            <table width="280" height="100" style="" cellspacing="1" cellpadding="3" border="0" bgcolor="#1E679A"><tr>
+            <td bgcolor="#ffffcc">
+            <font face="arial, verdana, helvetica"> <a href='{{ i.endereco_url }}'>conversar </a> </font>
+            </td></tr></table>
 
-       <td bgcolor="#ffffcc">
-           <font face="arial, verdana, helvetica"> <a href='http://127.0.0.1:8000/chat/1'>Conversar</a> </font>
-       </td></tr></table>
+        {% endfor %}
+
+
 
         <div class="container">
             {% block main %}
 
-                {% for i in nome_usuario %} <h5> {{ i.nome }} - está logado</h5> {% endfor %}
+                {% for i in nome_usuario %} <h5> {{ i.nome }} - logado</h5> {% endfor %}
                 {% include "includes/destaques.html" %}
                 {% include "includes/viewProdutos.html" %}
 

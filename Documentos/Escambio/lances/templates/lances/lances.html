@@ -42,9 +42,7 @@
 
 {% for r in tudo_concatenado %}
 
-
     {% for z in r.id_itens_lances_recebidos_objetos1 %}
-
 
         {% for b in z %}
 
@@ -59,7 +57,7 @@
             <h3>Visualizado: {{ b.visualizado }}</h3>
             <h3>Categoria: {{ b.categorias }}</h3>
             <h3>POR -------------------------------------------------</h3></br></br>
-            <a href='/?id_usuario_lancador={{ b.id_usuario_item_id }}'>Aceitar</a>
+            <a href='/?id_usuario_lancador={{ b.id_usuario_item_id }}&id_usuario_item_lancador={{ b.id }}'>Aceitar</a>
             {% endfor %}
 
 

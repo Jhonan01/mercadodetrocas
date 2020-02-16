@@ -9,48 +9,16 @@ def lances(request):
 
     if (type((request.session.session_key)) == type('chave')):
 
-        lancesTudo = []
-
-        id_itens_lances_enviados_objetos1 = []
-        id_itens_lances_recebidos_objetos1 = []
+        lances_tudo = []
 
         lances_enviados = Lances.objects.filter(id_usuario_ofertas_enviada = request.session['sessionid'])
         lances_recebidos = Lances.objects.filter(id_usuario_ofertas_recebida = request.session['sessionid'])
 
-        for i in range(len(lances_enviados)):
 
-            id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_enviada))
-            id_itens_lances_enviados_objetos1.append(Incluir_item.objects.filter(id = lances_enviados[i].id_item_oferta_recebida))
-
-
-        for a in range(len(lances_recebidos)):
-
-            id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_enviada))
-            id_itens_lances_recebidos_objetos1.append(Incluir_item.objects.filter(id = lances_recebidos[a].id_item_oferta_recebida))
-
-
-        lancesTudo = {
-
-            'id_itens_lances_enviados_objetos1':id_itens_lances_enviados_objetos1,
-            'id_itens_lances_recebidos_objetos1':id_itens_lances_recebidos_objetos1,
-
-        }
-
-        tudo = []
-
-        tudo.append(lancesTudo)
-
-        tudo_concatenado = []
-
-        tudo_concatenado = {
-
-            'tudo_concatenado':tudo
-
-        }
     else:
         return render(request, 'lances/lances.html', { })
 
-    return render(request, 'lances/lances.html', tudo_concatenado)
+    return render(request, 'lances/lances.html', {'lances_recebidos':lances_recebidos, 'lances_enviados':lances_enviados, })
 
 
 def lance_enviado(request):
@@ -67,6 +35,39 @@ def lance_enviado(request):
     formUpdate.id_item_oferta_recebida = request.GET['id_item_alvo']
     formUpdate.id_usuario_ofertas_enviada = request.session['sessionid']
     formUpdate.id_item_oferta_enviada = request.GET['id_item_meu']
+
+    item_oferta_enviada = Incluir_item.objects.filter(id = request.GET['id_item_meu'])
+    item_oferta_recebida = Incluir_item.objects.filter(id=request.GET['id_item_alvo'])
+
+    for i in item_oferta_enviada:
+
+        formUpdate.categorias_1 = i.categorias
+        formUpdate.descricao_1 = i.descricao
+        formUpdate.imagem1_1 = i.imagem1
+        formUpdate.imagem2_1 = i.imagem2
+        formUpdate.imagem3_1 = i.imagem3
+        formUpdate.imagem4_1 = i.imagem4
+        formUpdate.imagem5_1 = i.imagem5
+        formUpdate.latitude_1 = i.latitude
+        formUpdate.longitude_1 = i.longitude
+        formUpdate.titulo_1 = i.titulo
+        formUpdate.visualizado_1 = i.visualizado
+
+
+    for a in item_oferta_recebida:
+
+        formUpdate.categorias_2 = a.categorias
+        formUpdate.descricao_2 = a.descricao
+        formUpdate.imagem1_2 = a.imagem1
+        formUpdate.imagem2_2 = a.imagem2
+        formUpdate.imagem3_2 = a.imagem3
+        formUpdate.imagem4_2 = a.imagem4
+        formUpdate.imagem5_2 = a.imagem5
+        formUpdate.latitude_2 = a.latitude
+        formUpdate.longitude_2 = a.longitude
+        formUpdate.titulo_2 = a.titulo
+        formUpdate.visualizado_2 = a.visualizado
+
 
     formUpdate.save()
 

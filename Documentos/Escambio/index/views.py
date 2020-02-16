@@ -4,6 +4,7 @@ from typing import Any
 from index.models import *
 from lances.models import *
 from itens.models import *
+from contas.models import *
 
 def index(request):
 
@@ -13,7 +14,7 @@ def index(request):
 
         if(request.GET):
 
-            checar_url = len(Chat.objects.all())
+            checar_url = len(Chat.objects.all())+1
 
             concatenar_url = 'http://127.0.0.1:8000/chat/'+str(checar_url)
 
@@ -23,7 +24,30 @@ def index(request):
                 id_usuario_receptor = request.session['sessionid'],
                 chat_text = ' ',
                 endereco_url = concatenar_url,
-                id_usuario_item_lancador = request.GET['id_usuario_item_lancador']
+                id_usuario_item_lancador = request.GET['id_usuario_item_lancador'],
+                id_usuario_item_receptor = request.GET['id_item_receptor'],
+                titulo_1 = request.GET['titulo1'],
+                titulo_2 = request.GET['titulo2'],
+                descricao_1 = request.GET['descricao1'],
+                descricao_2 = request.GET['descricao2'],
+                imagem1_1 = request.GET['imagem11'],
+                imagem2_1=request.GET['imagem21'],
+                imagem3_1=request.GET['imagem31'],
+                imagem4_1=request.GET['imagem41'],
+                imagem5_1=request.GET['imagem51'],
+                imagem1_2=request.GET['imagem12'],
+                imagem2_2=request.GET['imagem22'],
+                imagem3_2=request.GET['imagem32'],
+                imagem4_2=request.GET['imagem42'],
+                imagem5_2=request.GET['imagem52'],
+                visualizado_1=request.GET['visualizado1'],
+                visualizado_2=request.GET['visualizado2'],
+                categorias_1=request.GET['categorias1'],
+                categorias_2=request.GET['categorias2'],
+                latitude_1=request.GET['latitude1'],
+                latitude_2=request.GET['latitude2'],
+                longitude_1=request.GET['longitude1'],
+                longitude_2=request.GET['longitude2'],
 
 
             )
@@ -35,7 +59,6 @@ def index(request):
         meus_contados_chat_receptado = Chat.objects.filter(id_usuario_receptor = request.session['sessionid'])
         meus_contados_chat_lancador = Chat.objects.filter(id_usuario_lancador=request.session['sessionid'])
 
-        tudo = []
 
         for i in meus_contados_chat_receptado:
 
@@ -46,17 +69,7 @@ def index(request):
             inf_chat_lances.append(a)
 
 
-
-        tudo = {
-
-            'nome_usuario': nome_usuario,
-            'inf_chat_lances':inf_chat_lances
-
-        }
-
-
-
-        return render(request, 'index.html', tudo)
+        return render(request, 'index.html', { 'inf_chat_lances':inf_chat_lances })
 
     else:
 

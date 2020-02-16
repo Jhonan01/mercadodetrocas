@@ -6,17 +6,17 @@ from contas.models import *
 
 def index(request):
 
-    nome_usuario = Usuario.objects.filter(id = request.session['sessionid'])
 
-    return render(request, 'chat/index.html', { 'nome_usuario':nome_usuario })
+    return render(request, 'chat/index.html')
 
 def room(request, room_name):
-    return render(request, 'chat/room.html', {
-        'room_name_json': mark_safe(json.dumps(room_name))
-    })
 
-def nome(request):
 
-    nome = request.session['sessionid']
+    if(request.GET):
 
-    return render(request, nome)
+        return render(request, 'chat/room.html', {
+
+                'imagens_mostrar': request.GET,
+                'room_name_json': mark_safe(json.dumps(room_name))
+
+        })

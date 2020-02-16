@@ -12,26 +12,32 @@
 <h3>Ofertas enviadas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
 
 
-{% for i in tudo_concatenado %}
+{% for i in lances_enviados %}
 
+{{ i.titulo_1 }}
 
-    {% for a in i.id_itens_lances_enviados_objetos1 %}
+            <img src = '/{{i.imagem1_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem2_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem3_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem4_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem5_1}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ i.titulo_1 }}</h3>
+            <h3>Descriçâo: {{ i.descricao_1 }}</h3>
+            <h3>Visualizado: {{ i.visualizado_1 }}</h3>
+            <h3>Categoria: {{ i.categorias_1 }}</h3>
 
-        {% for t in a %}
-
-            <img src = '/{{t.imagem1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{t.imagem2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{t.imagem3}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{t.imagem4}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{t.imagem5}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ t.titulo }}</h3>
-            <h3>Descriçâo: {{ t.descricao }}</h3>
-            <h3>Visualizado: {{ t.visualizado }}</h3>
-            <h3>Categoria: {{ t.categorias }}</h3>
             <h3>POR -------------------------------------------------</h3></br></br>
-            {% endfor %}
 
-{% endfor %}
+            <img src = '/{{i.imagem1_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem2_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem3_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem4_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{i.imagem5_2}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ i.titulo_2 }}</h3>
+            <h3>Descriçâo: {{ i.descricao_2 }}</h3>
+            <h3>Visualizado: {{ i.visualizado_2 }}</h3>
+            <h3>Categoria: {{ i.categorias_2 }}</h3>
+
 {% endfor %}
 
 
@@ -40,29 +46,37 @@
 <h3>Ofertas recebidas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
 
 
-{% for r in tudo_concatenado %}
+{% for b in lances_recebidos %}
 
-    {% for z in r.id_itens_lances_recebidos_objetos1 %}
+            <a href='/?id_usuario_lancador={{ b.id_usuario_ofertas_enviada }}&id_usuario_item_lancador={{ b.id_item_oferta_enviada }}&id_item_receptor={{ b.id_item_oferta_recebida }}&titulo1={{b.titulo_1}}&titulo2={{b.titulo_2}}&descricao1={{b.descricao_1}}&descricao2={{b.descricao_2}}&imagem11={{b.imagem1_1}}&imagem21={{b.imagem2_1}},&imagem31={{b.imagem3_1}}&imagem41={{b.imagem4_1}}&imagem51={{b.imagem5_1}}&imagem12={{b.imagem1_2}}&imagem22={{b.imagem2_2}}&imagem32={{b.imagem3_2}}&imagem42={{b.imagem4_2}}&imagem52={{b.imagem5_2}}&visualizado1={{b.visualizado_1}}&visualizado2={{b.visualizado_2}}&categorias1={{b.categorias_1}}&categorias2={{b.categorias_2}}&latitude1={{b.latitude_1}}&latitude2={{b.latitude_2}}&longitude1={{b.longitude_1}}&longitude2={{b.longitude_2}}'>Aceitar</a>
+            {{b.titulo_1}}
+            <img src = '/{{b.imagem1_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem2_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem3_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem4_1}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem5_1}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ b.titulo_1 }}</h3>
+            <h3>Descriçâo: {{ b.descricao_1 }}</h3>
+            <h3>Visualizado: {{ b.visualizado_1 }}</h3>
+            <h3>Categoria: {{ b.categorias_1 }}</h3>
 
-        {% for b in z %}
 
-
-            <img src = '/{{b.imagem1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem3}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem4}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem5}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ b.titulo }}</h3>
-            <h3>Descriçâo: {{ b.descricao }}</h3>
-            <h3>Visualizado: {{ b.visualizado }}</h3>
-            <h3>Categoria: {{ b.categorias }}</h3>
             <h3>POR -------------------------------------------------</h3></br></br>
-            <a href='/?id_usuario_lancador={{ b.id_usuario_item_id }}&id_usuario_item_lancador={{ b.id }}'>Aceitar</a>
-            {% endfor %}
+
+            <img src = '/{{b.imagem1_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem2_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem3_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem4_2}}' class="img-responsive" height="200" width="200" />
+            <img src = '/{{b.imagem5_2}}' class="img-responsive" height="200" width="200" />
+            <h3>Titulo: {{ b.titulo_2 }}</h3>
+            <h3>Descriçâo: {{ b.descricao_2 }}</h3>
+            <h3>Visualizado: {{ b.visualizado_2 }}</h3>
+            <h3>Categoria: {{ b.categorias_2 }}</h3>
 
 
 
-{% endfor %}
+
+
 {% endfor %}
 
 

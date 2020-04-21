@@ -2,30 +2,22 @@
 <html lang="pt-br">
     {% load static %}
     {% include "includes/head.html" %}
-<body>
 
     {% block nav %}
         {% include "includes/nav-extended.html" %}
     {% endblock %}
 
+
     <div class="row">
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        {% for i in inf_chat_lances %}
-
-             {{ i.titulo_1 }} POR-> {{ i.titulo_2 }}
-        <img src = '/{{i.imagem1_1}}' class="img-responsive" height="50" width="50" /> POR -> <img src = '/{{i.imagem1_2}}' class="img-responsive" height="50" width="50" />
 
 
-            <table width="280" height="100" style="" cellspacing="1" cellpadding="3" border="0" bgcolor="#2e7d32"><tr>
-            <td bgcolor="#ffffcc">
-            <font face="arial, verdana, helvetica"> <a href='{{ i.endereco_url }}?img1={{i.imagem1_1}}&img2={{i.imagem1_2}}'>conversar </a> </font>
-            </td></tr></table>
---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-        {% endfor %}
 
         <div class="container" >
-</head>
+
 <body>
+
+
+
     <div id="pai">
         <div id="filha"></div>
     </div>

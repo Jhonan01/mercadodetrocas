@@ -30,6 +30,6 @@ class Incluir_item(models.Model):
     imagem4 = models.ImageField(upload_to='static/img/produtos/')
     imagem5 = models.ImageField(upload_to='static/img/produtos/')
     visualizado = models.IntegerField(null=True, default=0)
-    categorias = models.CharField(max_length=50, null=True, choices=catEscolhas)
+    categorias = models.CharField(max_length=100, null=True, choices=catEscolhas)
     latitude = models.FloatField(null=True)
     longitude = models.FloatField(null=True)

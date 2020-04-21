@@ -29,7 +29,7 @@ class Local():
    #     dist = 6371 * math.acos(math.cos(math.radians(lat_1)) * math.cos(math.radians(lat_2)) * math.cos(math.radians(long_2) - math.radians(long_1)) + math.sin(math.radians(lat_1)) * math.sin(math.radians(lat_2)))
 
         #lat_1 = 1
-       # long_1 = 1
+        #long_1 = 1
 
         result = (lat_1 , long_1)
 

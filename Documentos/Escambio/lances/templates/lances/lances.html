@@ -3,81 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <title>Escâmbio</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
-<body>
-<h1>Escâmbio</h1></br>
+<body bgcolor="#EAEAE9">
 
-<a href="/">Inicio</a>
+<div class="#388e3c green darken-2 z-depth-1">
 
-<h3>Ofertas enviadas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
+<div class="nav-wrapper">
+    <div class="container" style=" height : 100%">
+
+        <a href="/" class="brand-logo"><img src="/static/img/logo.png" alt="Bricks"></a>
+
+    </div>
+
+
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script> $(document).ready(function(){
+    $('.materialboxed').materialbox();
+    });</script>
+
+<script> $(document).ready(function(){
+    $('.carousel').carousel();
+    });</script>
+
+<a href="/"><i class="material-icons">home</i></a>
+
+<div class="row">
+    <div class="container">
+
+        Ofertas enviadas: </br></br>
 
 
 {% for i in lances_enviados %}
 
-{{ i.titulo_1 }}
 
-            <img src = '/{{i.imagem1_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem2_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem3_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem4_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem5_1}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ i.titulo_1 }}</h3>
-            <h3>Descriçâo: {{ i.descricao_1 }}</h3>
-            <h3>Visualizado: {{ i.visualizado_1 }}</h3>
-            <h3>Categoria: {{ i.categorias_1 }}</h3>
+<div class="row">
+    <div class="container">
+        <div class="col s11 m12">
+            <div class="card">
 
-            <h3>POR -------------------------------------------------</h3></br></br>
+                 <div class="carousel">
 
-            <img src = '/{{i.imagem1_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem2_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem3_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem4_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{i.imagem5_2}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ i.titulo_2 }}</h3>
-            <h3>Descriçâo: {{ i.descricao_2 }}</h3>
-            <h3>Visualizado: {{ i.visualizado_2 }}</h3>
-            <h3>Categoria: {{ i.categorias_2 }}</h3>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem1_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem2_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem3_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem4_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem5_1}}' class="img-responsive" height="200" width="200" /></a>
+
+                 </div>
+
+            Titulo: {{ i.titulo_1 }}</br>
+            Descriçâo: {{ i.descricao_1 }}</br>
+            Visualizado: {{ i.visualizado_1 }}</br>
+            Categoria: {{ i.categorias_1 }}</br>
+
+                <hr>
+
+                <div class="carousel">
+
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem1_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem2_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem3_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem4_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{i.imagem5_2}}' class="img-responsive" height="200" width="200" /></a>
+                </div>
+
+            Titulo: {{ i.titulo_2 }}</br>
+            Descriçâo: {{ i.descricao_2 }}</br>
+            Visualizado: {{ i.visualizado_2 }}</br>
+            Categoria: {{ i.categorias_2 }}</br>
+
+                                       </div>
+        </div>
+    </div>
+    </div>
 
 {% endfor %}
 
 
 
-
-<h3>Ofertas recebidas-------------------------------------------------------------------------------------------------------------------------------------------------------------</h3></br></br>
+        Ofertas recebidas: </br></br>
 
 
 {% for b in lances_recebidos %}
-
-            <a href='/?id_usuario_lancador={{ b.id_usuario_ofertas_enviada }}&id_usuario_item_lancador={{ b.id_item_oferta_enviada }}&id_item_receptor={{ b.id_item_oferta_recebida }}&titulo1={{b.titulo_1}}&titulo2={{b.titulo_2}}&descricao1={{b.descricao_1}}&descricao2={{b.descricao_2}}&imagem11={{b.imagem1_1}}&imagem21={{b.imagem2_1}},&imagem31={{b.imagem3_1}}&imagem41={{b.imagem4_1}}&imagem51={{b.imagem5_1}}&imagem12={{b.imagem1_2}}&imagem22={{b.imagem2_2}}&imagem32={{b.imagem3_2}}&imagem42={{b.imagem4_2}}&imagem52={{b.imagem5_2}}&visualizado1={{b.visualizado_1}}&visualizado2={{b.visualizado_2}}&categorias1={{b.categorias_1}}&categorias2={{b.categorias_2}}&latitude1={{b.latitude_1}}&latitude2={{b.latitude_2}}&longitude1={{b.longitude_1}}&longitude2={{b.longitude_2}}'>Aceitar</a>
-            {{b.titulo_1}}
-            <img src = '/{{b.imagem1_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem2_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem3_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem4_1}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem5_1}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ b.titulo_1 }}</h3>
-            <h3>Descriçâo: {{ b.descricao_1 }}</h3>
-            <h3>Visualizado: {{ b.visualizado_1 }}</h3>
-            <h3>Categoria: {{ b.categorias_1 }}</h3>
+        <div class="row">
+    <div class="container">
+        <div class="col s12 m12">
+            <div class="card">
+                <div class="carousel">
 
 
-            <h3>POR -------------------------------------------------</h3></br></br>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem1_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem2_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem3_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem4_1}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem5_1}}' class="img-responsive" height="200" width="200" /></a>
 
-            <img src = '/{{b.imagem1_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem2_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem3_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem4_2}}' class="img-responsive" height="200" width="200" />
-            <img src = '/{{b.imagem5_2}}' class="img-responsive" height="200" width="200" />
-            <h3>Titulo: {{ b.titulo_2 }}</h3>
-            <h3>Descriçâo: {{ b.descricao_2 }}</h3>
-            <h3>Visualizado: {{ b.visualizado_2 }}</h3>
-            <h3>Categoria: {{ b.categorias_2 }}</h3>
+                </div>
+
+            Titulo: {{ b.titulo_1 }}</br>
+            Descriçâo: {{ b.descricao_1 }}</br>
+            Visualizado: {{ b.visualizado_1 }}</br>
+            Categoria: {{ b.categorias_1 }}</br>
+
+            <hr>
 
 
+            <div class="carousel">
 
 
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem1_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem2_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem3_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem4_2}}' class="img-responsive" height="200" width="200" /></a>
+            <a class="carousel-item" href="#one!"><img src = '/{{b.imagem5_2}}' class="img-responsive" height="200" width="200" /></a>
 
+                </div>
+
+            Titulo: {{ b.titulo_1 }}</br>
+            Descriçâo: {{ b.descricao_1 }}</br>
+            Visualizado: {{ b.visualizado_1 }}</br>
+            Categoria: {{ b.categorias_1 }}</br>
+
+
+        <a class="btn-floating halfway-fab waves-effect waves-light red" href="/?id_usuario_lancador={{ b.id_usuario_ofertas_enviada }}&id_usuario_item_lancador={{ b.id_item_oferta_enviada }}&id_item_receptor={{ b.id_item_oferta_recebida }}&titulo1={{b.titulo_1}}&titulo2={{b.titulo_2}}&descricao1={{b.descricao_1}}&descricao2={{b.descricao_2}}&imagem11={{b.imagem1_1}}&imagem21={{b.imagem2_1}},&imagem31={{b.imagem3_1}}&imagem41={{b.imagem4_1}}&imagem51={{b.imagem5_1}}&imagem12={{b.imagem1_2}}&imagem22={{b.imagem2_2}}&imagem32={{b.imagem3_2}}&imagem42={{b.imagem4_2}}&imagem52={{b.imagem5_2}}&visualizado1={{b.visualizado_1}}&visualizado2={{b.visualizado_2}}&categorias1={{b.categorias_1}}&categorias2={{b.categorias_2}}&latitude1={{b.latitude_1}}&latitude2={{b.latitude_2}}&longitude1={{b.longitude_1}}&longitude2={{b.longitude_2}}"><i class="material-icons right">thumb_up</i>Aceitar</a>
+        </br></br>
+
+                  </div>
+        </div>
+    </div>
+    </div>
 {% endfor %}
+
+
+
+
+
+         <footer class="#388e3c green darken-2">
+        <div class="container">
+          <div class="row">
+            <div class="#388e3c green darken-2">
+              <h5 class="white-text">Footer Content</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="#388e3c green darken-2">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-copyright">
+          <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+
+ </footer>
 
 
 

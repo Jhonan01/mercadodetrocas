@@ -3,40 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <title>Resultado da pesquisa</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
 
+
+
+<div class="#388e3c green darken-2 z-depth-1">
+
+<div class="nav-wrapper">
+    <div class="container" style=" height : 100%">
+
+        <a href="/" class="brand-logo"><img src="/static/img/logo.png" alt="Bricks"></a>
+
+    </div>
+
+
+</div>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script> $(document).ready(function(){
+    $('.materialboxed').materialbox();
+    });</script>
+
+<script> $(document).ready(function(){
+    $('.carousel').carousel();
+    });</script>
+
+
 <h3>Resultados: </h3>
 
+
+
 {% for i in dic %}
+<div class="row">
+    <div class="container">
+        <div class="col s12 m6">
+            <div class="card">
+
+                 <div class="carousel">
+    <a class="carousel-item" href="#one!"><img src = '/{{i.imagem1}}' class="materialboxed" height="200" width="200" /></a>
+    <a class="carousel-item" href="#two!"><img src = '/{{i.imagem2}}' class="materialboxed" height="200" width="200" /></a>
+    <a class="carousel-item" href="#three!"><img src = '/{{i.imagem3}}' class="materialboxed" height="200" width="200" /></a>
+    <a class="carousel-item" href="#four!"><img src = '/{{i.imagem4}}' class="materialboxed" height="200" width="200" /></a>
+    <a class="carousel-item" href="#five!"><img src = '/{{i.imagem5}}' class="materialboxed" height="200" width="200" /></a>
+  </div>
 
 
-    <img src = '/{{i.imagem1}}' class="img-responsive" height="200" width="200" />
-    <img src = '/{{i.imagem2}}' class="img-responsive" height="200" width="200" />
-    <img src = '/{{i.imagem3}}' class="img-responsive" height="200" width="200" />
-    <img src = '/{{i.imagem4}}' class="img-responsive" height="200" width="200" />
-    <img src = '/{{i.imagem5}}' class="img-responsive" height="200" width="200" />
+    </br>
+              
 
-    <h3>Titulo: {{ i.titulo }}</h3>
-    <h3>Descriçâo: {{ i.descricao }}</h3>
-    <h3>Visualizado: {{ i.visualizado }}</h3>
-    <h3>Categoria: {{ i.categorias }}</h3>
+    Titulo: {{ i.titulo }} </br>
+    Descriçâo: {{ i.descricao }}</br>
+    Visualizado: {{ i.visualizado }}</br>
+    Categoria: {{ i.categorias }}</br>
 
 
 
-
-     <a href='/meus_itens/?id_usuario_alvo={{i.id_usuario_item_id}}&id_item_alvo={{i.id}}'>
-
-         <button><h5>Dar oferta</h5></button></br>
-
-         --------------------------------------------------------------------------------------------------------
+     <a class="btn-floating halfway-fab waves-effect waves-light red" href="/meus_itens/?id_usuario_alvo={{i.id_usuario_item_id}}&id_item_alvo={{i.id}}"><i class="material-icons right">check</i>Dar oferta</a>
     
-
+                </br>
+                </br>
+                   </div>
+        </div>
+    </div>
+    </div>
 {% endfor %}
 
 
 
+<footer class="#388e3c green darken-2">
+        <div class="container">
+          <div class="row">
+            <div class="#388e3c green darken-2">
+              <h5 class="white-text">Footer Content</h5>
+              <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+            </div>
+            <div class="#388e3c green darken-2">
+              <h5 class="white-text">Links</h5>
+              <ul>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
+        <div class="footer-copyright">
+          <div class="container">
+          © 2014 Copyright Text
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+          </div>
+        </div>
+
+ </footer>
 
 </body>
 </html>
